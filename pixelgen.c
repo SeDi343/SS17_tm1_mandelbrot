@@ -6,6 +6,8 @@
  *
  * \version Rev.: 01, 15.04.2017 - Created - Importing code from mandelbrot task
  *          Rev.: 02, 15.04.2017 - Changed code for my individual program
+ *          Rev.: 03, 17.04.2017 - Removed fclose in cntrl-c handler
+ *
  *
  * \information Algorithm with information of
  *              http://stackoverflow.com/questions/16124127/improvement-to-my-mandelbrot-set-code
@@ -467,8 +469,8 @@ int main(int argc, char *argv[])
 void cntrl_c_handler(int dummy)
 {
 	printf(BOLD"You just typed CNTRL-C\nClosing everything...\n"RESET);
-	if (pFout != NULL)
-		fclose(pFout);
+/*	if (pFout != NULL)*/
+/*		fclose(pFout);*/
 	
 	free(picture_pointer);
 	exit(EXIT_SUCCESS);

@@ -1,4 +1,4 @@
-# t1_mandelbrot
+# tm1_mandelbrot
 MANDELBROT GENERATOR @ v1.0  
 Created by Sebastian Dichler, 2017  
   
