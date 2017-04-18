@@ -8,7 +8,7 @@ The whole process is running in a while loop and zooms out of the standard zoom.
 Debug messages appear read and time calculation messages appear in yellow background  
 Format input:  
 <pre>
-./pixelgen -w 3840 -h 2160 -i 30000  
+./pixelgen -w 3840 -h 2160 -i 30000 -c 1  
 </pre>
   
 Useable parameters:  

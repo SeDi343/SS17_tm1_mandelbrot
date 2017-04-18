@@ -87,7 +87,6 @@ void helpdesk_2(void)
 	printf(" -"BOLD"   7\t"RESET" for PT1 green\n");
 	printf(" -"BOLD"   8\t"RESET" for PT1 blue\n");
 	printf(" -"BOLD"   0\t"RESET" for log log all channels\n");
-	
 	printf("- "BOLD"[-?]\t"RESET" to show this help message\n");
 	
 #if DEBUG
