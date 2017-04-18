@@ -77,7 +77,17 @@ void helpdesk_2(void)
 	printf(" -"BOLD"[8]\t"RESET"  for 8th template\n");
 	printf(" -"BOLD"[9]\t"RESET"  for 9th template\n");
 	printf(" -"BOLD"[10]\t"RESET" for 10th template\n");
-	printf("- "BOLD"[-b]\t"RESET" to change color output\n");
+	printf("- "BOLD"[-c]\t"RESET" change color type\n");
+	printf(" -"BOLD"[1]\t"RESET" for sinus cyan\n");
+	printf(" -"BOLD"[2]\t"RESET" for sinus red\n");
+	printf(" -"BOLD"[3]\t"RESET" for sinus green\n");
+	printf(" -"BOLD"[4]\t"RESET" for sinus blue\n");
+	printf(" -"BOLD"[5]\t"RESET" for PT1 cyan\n");
+	printf(" -"BOLD"[6]\t"RESET" for PT1 red\n");
+	printf(" -"BOLD"[7]\t"RESET" for PT1 green\n");
+	printf(" -"BOLD"[8]\t"RESET" for PT1 blue\n");
+	printf(" -"BOLD"[0]\t"RESET" for log log all channels\n");
+	
 	printf("- "BOLD"[-?]\t"RESET" to show this help message\n");
 	
 #if DEBUG

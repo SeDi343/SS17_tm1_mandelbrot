@@ -7,6 +7,7 @@
  * \version Rev.: 01, 15.04.2017 - Created - Importing code from mandelbrot task
  *          Rev.: 02, 15.04.2017 - Changed code for my individual program
  *          Rev.: 03, 17.04.2017 - Removed fclose in cntrl-c handler
+ *          Rev.: 04, 18.04.2017 - Adding color types
  *
  *
  * \information Algorithm with information of
@@ -49,11 +50,13 @@ int main(int argc, char *argv[])
 	int colorr;
 	int colorg;
 	int colorb;
+	int colortype = 0;
 	
 	char widthString[STRINGLENGTH];
 	char heightString[STRINGLENGTH];
 	char iterationsString[STRINGLENGTH];
 	char typeString[STRINGLENGTH];
+	char colorString[STRINGLENGTH];
 	
 	char filename[STRINGLENGTH];
 	
@@ -72,7 +75,7 @@ int main(int argc, char *argv[])
 	
 	clear();
 	
-	while ((opt = getopt(argc, argv, "w:h:i:t:?")) != -1)
+	while ((opt = getopt(argc, argv, "w:h:i:t:c:?")) != -1)
 	{
 		switch (opt)
 		{
@@ -114,6 +117,16 @@ int main(int argc, char *argv[])
 				if (error == 1)
 					errorcount++;
 				type = strtod(typeString, &pEnd);
+			break;
+			
+			case 'c':
+				error = clearOptarg(colorString, optarg);
+				if (error == 1)
+					errorcount++;
+				error = check_number(colorString);
+				if (error == 1)
+					errorcount++;
+				colortype = strtod(colorString, &pEnd);
 			break;
 			
 			case '?':
@@ -347,11 +360,65 @@ int main(int argc, char *argv[])
 				
 				else
 				{
-					z = sqrt(newRe * newRe + newIm * newIm);
-					double_iterations = iterations;
-					brightnessr = 256 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations) + colorr;
-					brightnessg = 256 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations) + colorg;
-					brightnessb = 256 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations) + colorb;
+					switch (colortype)
+					{
+						case 1: /* SINUS CYAN */
+							brightnessr = 0;
+							brightnessg = llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+							brightnessb = llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+						break;
+						
+						case 2: /* SINUS RED */
+							brightnessr = llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+							brightnessg = 0;
+							brightnessb = 0;
+						break;
+						
+						case 3: /* SINUS GREEN */
+							brightnessr = 0;
+							brightnessg = llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+							brightnessb = 0;
+						break;
+						
+						case 4: /* SINUS BLUE */
+							brightnessr = 0;
+							brightnessg = 0;
+							brightnessb = llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+						break;
+						
+						case 5: /* PT1 CYAN */
+							brightnessr = 0;
+							brightnessg = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+							brightnessb = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+						break;
+						
+						case 6: /* PT1 RED */
+							brightnessr = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+							brightnessg = 0;
+							brightnessb = 0;
+						break;
+						
+						case 7: /* PT1 GREEN */
+							brightnessr = 0;
+							brightnessg = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+							brightnessb = 0;
+						break;
+						
+						case 8: /* PT1 BLUE */
+							brightnessr = 0;
+							brightnessg = 0;
+							brightnessb = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+						break;
+						
+						default: /* LOG LOG */
+							z = sqrt(newRe * newRe + newIm * newIm);
+							double_iterations = iterations;
+							brightnessr = 256 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations) + colorr;
+							brightnessg = 256 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations) + colorg;
+							brightnessb = 256 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations) + colorb;
+						break;
+					}
+					
 					
 					(picture_pointer+k)->r = brightnessr;
 					(picture_pointer+k)->g = brightnessg;
