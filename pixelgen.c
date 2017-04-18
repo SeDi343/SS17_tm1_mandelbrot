@@ -419,7 +419,6 @@ int main(int argc, char *argv[])
 						break;
 					}
 					
-					
 					(picture_pointer+k)->r = brightnessr;
 					(picture_pointer+k)->g = brightnessg;
 					(picture_pointer+k)->b = brightnessb;
@@ -445,8 +444,7 @@ int main(int argc, char *argv[])
 						(picture_pointer+k)->g = 255;
 					
 					if ((picture_pointer+k)->b > 255)
-						(picture_pointer+k)->b = 255;
-					
+						(picture_pointer+k)->b = 255;	
 				}
 				
 				k++;
