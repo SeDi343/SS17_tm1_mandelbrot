@@ -8,7 +8,7 @@
  *          Rev.: 02, 15.04.2017 - Changed code for my individual program
  *          Rev.: 03, 17.04.2017 - Removed fclose in cntrl-c handler
  *          Rev.: 04, 18.04.2017 - Adding color types (somehow not working well (SINUS / PT1))
- *          Rev.: 05, 19.04.2017 - Added color type 9 (good for big zooms (eg 0.005))
+ *          Rev.: 05, 19.04.2017 - Added color mapping type 9 (good for big zooms (eg 0.005))
  *
  *
  * \information Algorithm with information of
