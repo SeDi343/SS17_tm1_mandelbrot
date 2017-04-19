@@ -13,7 +13,7 @@
  *          Rev.: 06, 06.03.2017 - Added message structs
  *          Rev.: 07, 15.04.2017 - Removed useless message structs
  *
- * \information A bug with ifndef and define of _myhead_, can't find it
+ * \information
  *
  */
 

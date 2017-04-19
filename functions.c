@@ -7,6 +7,7 @@
  *          Rev.: 03, 06.04.2017 - Added getkey function
  *          Rev.: 04, 08.04.2017 - Added getnewzoom function
  *          Rev.: 05, 16.04.2017 - Changed getnewzoom function
+ *          Rev.: 06, 19.04.2017 - Changed helpdesk_2
  *
  *
  * \information Some functions from my previous tasks due to
