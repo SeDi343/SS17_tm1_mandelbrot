@@ -24,6 +24,8 @@
 PICTURE *picture_pointer = NULL;
 FILE* pFout = NULL;
 
+static void cntrl_c_handler(int dummy);
+
 int main(int argc, char *argv[])
 {
 	struct timeval timer1, timer2, timer3, timer4;

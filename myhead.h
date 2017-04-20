@@ -89,6 +89,4 @@ int check_number(char *number);
 int clearOptarg(char *string, char *input);
 double getnewzoom(double zoom);
 
-void cntrl_c_handler(int dummy);
-
 #endif /* _myhead_ */
