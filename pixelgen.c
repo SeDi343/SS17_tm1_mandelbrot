@@ -9,6 +9,7 @@
  *          Rev.: 03, 17.04.2017 - Removed fclose in cntrl-c handler
  *          Rev.: 04, 18.04.2017 - Adding color types (somehow not working well (SINUS / PT1))
  *          Rev.: 05, 19.04.2017 - Added color mapping type 9 (good for big zooms (eg 0.005))
+ *          Rev.: 06, 25.04.2017 - Changes in color mapping type SINUS and PT1 and new values for SINUS
  *
  *
  * \information Algorithm with information of
@@ -47,7 +48,7 @@ int main(int argc, char *argv[])
 	int brightnessr;
 	int brightnessg;
 	int brightnessb;
-	double value;
+	int value;
 	
 	double z;
 	double double_iterations;
@@ -359,60 +360,56 @@ int main(int argc, char *argv[])
 					switch (colortype)
 					{
 						case 1: /* SINUS CYAN */
-							double_iterations = iterations;
-							value = 255 * llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+							value = llround(255.0/2.0*sin(i/(5)-1.57079632679)+255.0/2.0);
 							brightnessr = 0;
 							brightnessg = value;
 							brightnessb = value;
 						break;
 						
 						case 2: /* SINUS RED */
-							double_iterations = iterations;
-							value = 255 * llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+							value = llround(255.0/2.0*sin(i/(5)-1.57079632679)+255.0/2.0);
 							brightnessr = value;
 							brightnessg = 0;
 							brightnessb = 0;
 						break;
 						
 						case 3: /* SINUS GREEN */
-							double_iterations = iterations;
-							value = 255 * llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+							value = llround(255.0/2.0*sin(i/(5)-1.57079632679)+255.0/2.0);
 							brightnessr = 0;
 							brightnessg = value;
 							brightnessb = 0;
 						break;
 						
 						case 4: /* SINUS BLUE */
-							double_iterations = iterations;
-							value = 255 * llround(255.0/2.0*sin(i/(25)-1.57079632679)+255.0/2.0);
+							value = llround(255.0/2.0*sin(i/(5)-1.57079632679)+255.0/2.0);
 							brightnessr = 0;
 							brightnessg = 0;
 							brightnessb = value;
 						break;
 						
 						case 5: /* PT1 CYAN */
-							value = 255 * llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+							value = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
 							brightnessr = 0;
 							brightnessg = value;
 							brightnessb = value;
 						break;
 						
 						case 6: /* PT1 RED */
-							value = 255 * llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+							value = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
 							brightnessr = value;
 							brightnessg = 0;
 							brightnessb = 0;
 						break;
 						
 						case 7: /* PT1 GREEN */
-							value = 255 * llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+							value = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
 							brightnessr = 0;
 							brightnessg = value;
 							brightnessb = 0;
 						break;
 						
 						case 8: /* PT1 BLUE */
-							value = 255 * llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
+							value = llround(255.0 - 255.0 * exp(i / 100 * (-1.0)));
 							brightnessr = 0;
 							brightnessg = 0;
 							brightnessb = value;
