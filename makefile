@@ -17,4 +17,5 @@ move:
 	mv a.out pixelgen
 
 clean:
-	rm pixelgen.o functions.o
+	find . -name "*.o" -exec rm {} \;
+	find . -name "*.h.gch" -exec rm {} \;
