@@ -7,9 +7,13 @@
  * \version Rev.: 01, 15.04.2017 - Created - Importing code from mandelbrot task
  *          Rev.: 02, 15.04.2017 - Changed code for my individual program
  *          Rev.: 03, 17.04.2017 - Removed fclose in cntrl-c handler
- *          Rev.: 04, 18.04.2017 - Adding color types (somehow not working well (SINUS / PT1))
- *          Rev.: 05, 19.04.2017 - Added color mapping type 9 (good for big zooms (eg 0.005))
- *          Rev.: 06, 25.04.2017 - Changes in color mapping type SINUS and PT1 and new values for SINUS
+ *          Rev.: 04, 18.04.2017 - Adding color types (somehow not working well
+ *                                 (SINUS / PT1))
+ *          Rev.: 05, 19.04.2017 - Added color mapping type 9 (good for big zooms
+ *                                 (eg 0.005))
+ *          Rev.: 06, 25.04.2017 - Changes in color mapping type SINUS and PT1
+ *                                 and new values for SINUS
+ *          Rev.: 07, 26.04.2017 - Using snprintf and new format
  *
  *
  * \information Algorithm with information of
@@ -582,7 +586,12 @@ int main(int argc, char *argv[])
 		
 		printf("* Writing file...\n");
 		
-		sprintf(filename, "picture-%.03d.ppm", f);
+		error = snprintf(filename, STRINGLENGTH, "picture-%.03d.ppm", f);
+		if (error < 0 || error > 15)
+		{
+			perror(BOLD"\nERROR: snprintf: Couldn't generate string for picture"RESET);
+		}
+		
 		if (f > 999)
 		{
 			perror(BOLD"\nERROR: reached maximum pictures value of 1000"RESET);
@@ -626,11 +635,15 @@ int main(int argc, char *argv[])
 		
 		timediff2 = (timer4.tv_sec+timer4.tv_usec*0.000001)-(timer3.tv_sec+timer3.tv_usec*0.000001);
 		
-		printf("\n"BLACK BACKYELLOW"Generated pixels within "BOLDBLACK BACKYELLOW"%f"BLACK BACKYELLOW" secs"RESET"\n", timediff1);
-		printf(BLACK BACKYELLOW"Generate Speed: "BOLDBLACK BACKYELLOW"%.2fMB/s"RESET"\n\n", (((sizeof(PICTURE)*height*width)/1000000)/timediff1));
+		printf("\n"BLACK BACKYELLOW"Generated pixels within "BOLDBLACK BACKYELLOW"%f"BLACK BACKYELLOW" secs"RESET"\n",
+			timediff1);
+		printf(BLACK BACKYELLOW"Generate Speed: "BOLDBLACK BACKYELLOW"%.2fMB/s"RESET"\n\n",
+			(((sizeof(PICTURE)*height*width)/1000000)/timediff1));
 		
-		printf("\n"BLACK BACKYELLOW"Wrote file within "BOLDBLACK BACKYELLOW"%f"BLACK BACKYELLOW" secs"RESET"\n", timediff2);
-		printf(BLACK BACKYELLOW"Write Speed: "BOLDBLACK BACKYELLOW"%.2fMB/s"RESET"\n\n", (((sizeof(PICTURE)*height*width)/1000000)/timediff2));
+		printf("\n"BLACK BACKYELLOW"Wrote file within "BOLDBLACK BACKYELLOW"%f"BLACK BACKYELLOW" secs"RESET"\n",
+			timediff2);
+		printf(BLACK BACKYELLOW"Write Speed: "BOLDBLACK BACKYELLOW"%.2fMB/s"RESET"\n\n",
+			(((sizeof(PICTURE)*height*width)/1000000)/timediff2));
 		
 		currentzoom = getnewzoom(currentzoom);
 		f++;
@@ -646,7 +659,7 @@ int main(int argc, char *argv[])
 
 void cntrl_c_handler(int dummy)
 {
-	printf(BOLD"You just typed CNTRL-C\nClosing everything...\n"RESET);
+	printf(BOLD"You just typed CTRL-C\nClosing everything...\n"RESET);
 /*	if (pFout != NULL)*/
 /*		fclose(pFout);*/
 	
