@@ -8,6 +8,7 @@
  *          Rev.: 04, 08.04.2017 - Added getnewzoom function
  *          Rev.: 05, 16.04.2017 - Changed getnewzoom function
  *          Rev.: 06, 19.04.2017 - Changed helpdesk_2
+ *          Rev.: 07, 26.04.2017 - Checking return value of system
  *
  *
  * \information Some functions from my previous tasks due to
@@ -25,7 +26,13 @@
 
 void clear(void)
 {
-	system("clear");
+	int error;
+	error = system("clear");
+	if (error == 0 || error == -1)
+	{
+		perror(BOLD"\nERROR: system: Can't clear screen"RESET);
+	}
+	
 	helpdesk_1();
 }
 
@@ -33,7 +40,12 @@ void clear(void)
 
 void clearNoHelp(void)
 {
-	system("clear");
+	int error;
+	error = system("clear");
+	if (error == 0 || error == -1)
+	{
+		perror(BOLD"\nERROR: system: Can't clear screen"RESET);
+	}
 }
 
 /* ---- HELPDESK FUNCTION ---- */
