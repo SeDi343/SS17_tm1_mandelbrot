@@ -449,7 +449,7 @@ int main(int argc, char *argv[])
 							}
 							else if (i < (iterations % 16) * 5)
 							{
-								brightnessr = 0 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
+								brightnessr = 0;
 								brightnessg = 7 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
 								brightnessb = 100 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
 							}
@@ -499,19 +499,19 @@ int main(int argc, char *argv[])
 							{
 								brightnessr = 255 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
 								brightnessg = 170 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
-								brightnessb = 0 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
+								brightnessb = 0;
 							}
 							else if (i < (iterations % 16) * 14)
 							{
 								brightnessr = 204 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
 								brightnessg = 128 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
-								brightnessb = 0 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
+								brightnessb = 0;
 							}
 							else if (i < (iterations % 16) * 15)
 							{
 								brightnessr = 153 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
 								brightnessg = 87 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
-								brightnessb = 0 * log2(1.75 + i - log2(log2(z))) / log2(double_iterations);
+								brightnessb = 0;
 							}
 							else if (i < (iterations % 16) * 16)
 							{
